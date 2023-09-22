@@ -1,0 +1,39 @@
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// -------------------------------------------
+
+enum Role {
+  USER
+  ADMIN
+}
+
+model User {
+  uid  String @id @default(uuid())
+  name String
+  role Role   @default(USER)
+}
+
+model Category{
+  id String @id @default(uuid())
+  name String
+}
+
+model Lawyer {
+  id          String @id @default(uuid())
+  description String
+  instruction String @db.Text
+  seed        String @db.Text
+}
+
+// npm i -D  prisma
+// npx prisma init
+// npx prisma generate
+// npx prisma db push
