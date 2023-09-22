@@ -24,6 +24,7 @@ model User {
 model Category{
   id String @id @default(uuid())
   name String
+  lawyer Lawyer[]
 }
 
 model Lawyer {
@@ -31,9 +32,16 @@ model Lawyer {
   description String
   instruction String @db.Text
   seed        String @db.Text
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  category    Category @relation(fields: [categoryId], references: [id])
+  categoryId String
+
+  @@index([categoryId])
 }
 
 // npm i -D  prisma
 // npx prisma init
 // npx prisma generate
 // npx prisma db push
+// npx prisma studio
