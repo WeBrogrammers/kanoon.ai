@@ -9,7 +9,6 @@ interface lawyerIdProps{
 
 
 export default async function LawyerPage({params}:lawyerIdProps){
-    console.log(params.lid);
     const lawyer = await prismadb.lawyer.findUnique({
         where:{
             id: params.lid
