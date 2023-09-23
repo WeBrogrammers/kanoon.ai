@@ -1,4 +1,4 @@
-import Leftsidebar from './components/Leftsidebar'
+import Leftsidebar from '../components/Leftsidebar'
 
 export default function ChatPage() {
     return(

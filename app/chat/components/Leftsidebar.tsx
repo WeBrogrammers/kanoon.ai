@@ -1,6 +1,10 @@
 import { Bot } from 'lucide-react';
 import Uploadfile from './uploadfile';
-export default function Leftsidebar() {
+import LlmCategory from './llmcategory';
+import prisma from '@/lib/prismadb'
+
+export default async function Leftsidebar() {
+    const category = await prisma?.category.findMany()
     return (
         <div className="flex flex-col py-8 pl-6 pr-2 w-64 bg-white flex-shrink-0">
             <div className="flex flex-row items-center justify-center h-12 w-full">
@@ -14,12 +18,12 @@ export default function Leftsidebar() {
             </div>
             {/* file uploading compnent */}
             <Uploadfile />
-            <div className="flex flex-col mt-8">
+            <div className="flex flex-col mt-2">
                 <div className="flex flex-row items-center justify-between text-xs">
                     <span className="font-bold">Active Conversations</span>
                     {/* <span className="flex items-center justify-center bg-gray-300 h-4 w-4 rounded-full">4</span> */}
                 </div>
-                <div className="flex flex-col space-y-1 mt-4 -mx-2 h-48 overflow-y-auto">
+                <div className="flex flex-col space-y-1 mt-4 -mx-2 h-55 overflow-y-auto">
                     <button className="flex flex-row items-center hover:bg-gray-100 rounded-xl p-2">
                         {/* <div className="flex items-center justify-center h-8 w-8 bg-indigo-200 rounded-full">
                             H
@@ -54,18 +58,7 @@ export default function Leftsidebar() {
                         <div className="ml-2 text-sm font-semibold">Divorce notice</div>
                     </button>
                 </div>
-                <div className="flex flex-row items-center justify-between text-xs mt-6">
-                    <span className="font-bold">Available LLM's</span>
-                    <span className="flex items-center justify-center bg-gray-300 h-4 w-4 rounded-full">9</span>
-                </div>
-                <div className="flex flex-col space-y-1 mt-4 -mx-2">
-                    <button className="flex flex-row items-center hover:bg-gray-100 rounded-xl p-2">
-                        {/* <div className="flex items-center justify-center h-8 w-8 bg-indigo-200 rounded-full">
-                            H
-                        </div> */}
-                        <div className="ml-2 text-sm font-semibold">Criminal Lawyer</div>
-                    </button>
-                </div>
+<LlmCategory data={category}/>
             </div>
         </div>
     )
