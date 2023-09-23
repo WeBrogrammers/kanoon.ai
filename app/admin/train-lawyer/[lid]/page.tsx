@@ -1,5 +1,5 @@
 import prismadb from "@/lib/prismadb";
-import LawyerForm from "./components/lawyerForm";
+import LawyerForm from "../components/lawyerForm";
 
 interface lawyerIdProps{
     params:{

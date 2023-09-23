@@ -90,7 +90,7 @@ const router = useRouter();
         duration: 3000,
       });
          router.refresh();
-      router.push("/");
+      router.push("/admin/train-lawyer");
         } catch (error) {
           console.log(error); 
           toast({
