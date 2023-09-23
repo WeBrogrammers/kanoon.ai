@@ -1,5 +1,5 @@
 import prismadb from "@/lib/prismadb";
-import { currentUser } from "@clerk/nextjs";
+import { auth, currentUser } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 
 export async function PATCH(
@@ -7,7 +7,7 @@ export async function PATCH(
   { params }: { params: { lawyerId: string } }
 ) {
   try {
-    const { description, instruction, seed, categoryId } = await req.json();
+    const { description, instructions,name, seed, categoryId } = await req.json();
     const user = await currentUser();
     console.log(user, req.json());
     if (!params.lawyerId) {
@@ -17,16 +17,43 @@ export async function PATCH(
     if (!user || !user.id || !user.firstName) {
       return new NextResponse("Unauthorized", { status: 401 });
     }
-    if (!description || !instruction || !seed || !categoryId) {
+    if (!description || !instructions || !seed || !categoryId ||!name) {
       return new NextResponse("Missing required fields", { status: 400 });
     }
     const lawyer = await prismadb.lawyer.update({
       where: { id: params.lawyerId },
-      data: { description, instruction, seed, categoryId },
+      data: {  
+        categoryId,
+        name,
+        userId: user.id,
+        userName: user.firstName,
+        description,
+        instructions,
+        seed, },
     });
     return NextResponse.json(lawyer);
   } catch (error) {
     console.log("error in api/lawyer:patch", error);
+    return new NextResponse("Internal server error", { status: 500 });
+  }
+}
+
+
+export async function DELETE( req: Request,
+  { params }: { params: { lawyerId: string } }){
+  try {
+    const {userId} = auth()
+    if(!userId){
+      return new NextResponse("Unauthorized", { status: 401 });
+    }
+    const lawyer = await prismadb.lawyer.delete({
+      where:{
+        id:params.lawyerId
+      }
+    })
+    return NextResponse.json(lawyer);
+  } catch (error) {
+    console.log("error in api/lawyer:delete",error);
     return new NextResponse("Internal server error", { status: 500 });
   }
 }

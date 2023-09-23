@@ -5,7 +5,6 @@ import LawyerCard from './components/lawyercard'
 
 export default async function AdminPage() {
     const lawyers = await prismadb.lawyer.findMany()
-    // console.log(lawyers)
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-24 mx-auto">
