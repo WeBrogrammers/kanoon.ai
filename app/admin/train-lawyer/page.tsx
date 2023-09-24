@@ -2,9 +2,25 @@ import prismadb from "@/lib/prismadb";
 import { PlusSquare } from "lucide-react";
 import Link from 'next/link'
 import LawyerCard from './components/lawyercard'
+import { auth } from '@clerk/nextjs'
+import {redirect} from 'next/navigation'
 
 export default async function AdminPage() {
-    const lawyers = await prismadb.lawyer.findMany()
+  const lawyers = await prismadb.lawyer.findMany()
+  const { userId } = auth()
+  if (userId) {
+    const user = await prismadb.user.findUnique({ where: { id: userId } })
+    if(!user){
+      await prismadb.user.create({data:{id:userId}})
+    }
+    else{
+      if(user.role !== 'ADMIN'){
+        // redirect to home page
+        redirect('/')
+      }
+    }
+  }
+  
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-24 mx-auto">

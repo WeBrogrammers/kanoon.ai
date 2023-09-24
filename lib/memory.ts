@@ -1,13 +1,13 @@
-import {Redis} from '@upstash/redis'
-import {OpenAIEmbeddings} from 'langchain/embeddings/openai'
-import {PineconeClient} from '@pinecone-database/pinecone'
-import {PineconeStore} from "langchain/vectorstores/pinecone"
+import { Redis } from "@upstash/redis";
+import { OpenAIEmbeddings } from "langchain/embeddings/openai";
+import { PineconeClient } from "@pinecone-database/pinecone";
+import { PineconeStore } from "langchain/vectorstores/pinecone";
 
 export type LawyerKey = {
-    lawyerName:string;
-    modelName:string;
-    userId:string;
-}
+  lawyerName: string;
+  modelName: string;
+  userId: string;
+};
 
 // class MemoryManager that is designed to manage memory, specifically for storing and retrieving chat history and performing vector searches
 export class MemoryManager {

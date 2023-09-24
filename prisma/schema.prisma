@@ -10,21 +10,20 @@ generator client {
 
 // -------------------------------------------
 
-// enum Role {
-//   USER
-//   ADMIN
-// }
+enum Role {
+  USER
+  ADMIN
+}
 
 enum ChatRole {
   USER
   SYSTEM
 }
 
-// model User {
-//   id  String @id 
-//   role Role   @default(USER)
-//   lawyer Lawyer[]
-// }
+model User {
+  id  String @id 
+  role Role   @default(USER)
+}
 
 model Category {
   id     String   @id @default(uuid())
@@ -33,17 +32,6 @@ model Category {
 
 }
 
-// model Message {
-//   id        String   @id @default(uuid())
-//   role      ChatRole
-//   content   String   @db.Text
-//   createdAt DateTime @default(now())
-//   updatedAt DateTime @updatedAt
-//   lawyer    Lawyer   @relation(fields: [lawyerId], references: [id], onDelete: Cascade)
-//   lawyerId  String 
-
-//   @@index([lawyerId])
-// }
 
 model Message {
   id          String   @id @default(uuid())
@@ -59,23 +47,6 @@ model Message {
   
   @@index([companionId])
 }
-
-// model Lawyer {
-//   id          String    @id @default(uuid())
-//   description String
-//   instruction String    @db.Text
-//   seed        String    @db.Text
-//   createdAt   DateTime  @default(now())
-//   updatedAt   DateTime  @updatedAt
-//   category    Category  @relation(fields: [categoryId], references: [id])
-//   categoryId  String
-//   user        User      @relation(fields: [userId], references: [id])
-//   userId      String
-//   messages    Message[]
-
-//   @@index([categoryId])
-//   @@index([userId])
-// }
 
 model Lawyer {
   id            String @id @default(uuid())

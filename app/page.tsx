@@ -37,7 +37,7 @@ export default async function Home() {
       <section className="text-gray-400 bg-gray-900 body-font">
         <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
           <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 md:mb-0 mb-10">
-            <img className="object-cover object-center rounded" alt="hero" src="Img/Hero.jpg" />
+            {/* <img className="object-cover object-center rounded" alt="hero" src="Img/Hero.jpg" /> */}
           </div>
           <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
             <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">
@@ -56,7 +56,7 @@ export default async function Home() {
               </button>
               </Link>
               <button className="ml-4 inline-flex text-gray-400 bg-gray-800 border-0 py-2 px-6 focus:outline-none hover:bg-gray-700 hover:text-white rounded text-lg">
-                <a href="/index.html">Book an Appointment</a>
+                <Link href="/">Book an Appointment</Link>
               </button>
             </div>
           </div>
@@ -392,24 +392,24 @@ export default async function Home() {
           <div className="flex flex-wrap md:-m-2 -m-1">
             <div className="flex flex-wrap w-1/2">
               <div className="md:p-2 p-1 w-1/2">
-                <img alt="gallery" className="w-full object-cover h-full object-center block" src="Img/gallery1.jpeg" />
+                {/* <img alt="gallery" className="w-full object-cover h-full object-center block" src="Img/gallery1.jpeg" /> */}
               </div>
               <div className="md:p-2 p-1 w-1/2">
-                <img alt="gallery" className="w-full object-cover h-full object-center block" src="Img/gallery2.jpg" />
+                {/* <img alt="gallery" className="w-full object-cover h-full object-center block" src="Img/gallery2.jpg" /> */}
               </div>
               <div className="md:p-2 p-1 w-full">
-                <img alt="gallery" className="w-full h-full object-cover object-center block" src="Img/gallery3.jpeg" />
+                {/* <img alt="gallery" className="w-full h-full object-cover object-center block" src="Img/gallery3.jpeg" /> */}
               </div>
             </div>
             <div className="flex flex-wrap w-1/2">
               <div className="md:p-2 p-1 w-full">
-                <img alt="gallery" className="w-full h-full object-cover object-center block" src="Img/gallery4.jpeg" />
+                {/* <img alt="gallery" className="w-full h-full object-cover object-center block" src="Img/gallery4.jpeg" /> */}
               </div>
               <div className="md:p-2 p-1 w-1/2">
-                <img alt="gallery" className="w-full object-cover h-full object-center block" src="Img/gallery5.jpeg" />
+                {/* <img alt="gallery" className="w-full object-cover h-full object-center block" src="Img/gallery5.jpeg" /> */}
               </div>
               <div className="md:p-2 p-1 w-1/2">
-                <img alt="gallery" className="w-full object-cover h-full object-center block" src="Img/gallery6.jpeg" />
+                {/* <img alt="gallery" className="w-full object-cover h-full object-center block" src="Img/gallery6.jpeg" /> */}
               </div>
             </div>
           </div>
@@ -489,7 +489,7 @@ export default async function Home() {
           <div className="flex flex-wrap -m-4">
             <div className="p-4 lg:w-1/2">
               <div className="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
-                <img alt="team" className="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="https://dummyimage.com/200x200" />
+                {/* <img alt="team" className="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="https://dummyimage.com/200x200" /> */}
                 <div className="flex-grow sm:pl-8">
                   <h2 className="title-font font-medium text-lg text-white">
                     Naveen Gaonkar
@@ -521,7 +521,7 @@ export default async function Home() {
             </div>
             <div className="p-4 lg:w-1/2">
               <div className="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
-                <img alt="team" className="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="https://dummyimage.com/201x201" />
+                {/* <img alt="team" className="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="https://dummyimage.com/201x201" /> */}
                 <div className="flex-grow sm:pl-8">
                   <h2 className="title-font font-medium text-lg text-white">
                     Sagara B G
@@ -553,7 +553,7 @@ export default async function Home() {
             </div>
             <div className="p-4 lg:w-1/2">
               <div className="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
-                <img alt="team" className="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="https://dummyimage.com/204x204" />
+                {/* <img alt="team" className="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="https://dummyimage.com/204x204" /> */}
                 <div className="flex-grow sm:pl-8">
                   <h2 className="title-font font-medium text-lg text-white">
                     Prajwal S
@@ -584,7 +584,7 @@ export default async function Home() {
             </div>
             <div className="p-4 lg:w-1/2">
               <div className="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
-                <img alt="team" className="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="https://dummyimage.com/206x206" />
+                {/* <img alt="team" className="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="https://dummyimage.com/206x206" /> */}
                 <div className="flex-grow sm:pl-8">
                   <h2 className="title-font font-medium text-lg text-white">
                     Balaji T S
@@ -616,7 +616,7 @@ export default async function Home() {
             </div>
             <div className="p-4 lg:w-1/2">
               <div className="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
-                <img alt="team" className="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="https://dummyimage.com/206x206" />
+                {/* <img alt="team" className="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="https://dummyimage.com/206x206" /> */}
                 <div className="flex-grow sm:pl-8">
                   <h2 className="title-font font-medium text-lg text-white">
                     Manoj M V
@@ -648,7 +648,7 @@ export default async function Home() {
             </div>
             <div className="p-4 lg:w-1/2">
               <div className="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
-                <img alt="team" className="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="https://dummyimage.com/206x206" />
+                {/* <img alt="team" className="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="https://dummyimage.com/206x206" /> */}
                 <div className="flex-grow sm:pl-8">
                   <h2 className="title-font font-medium text-lg text-white">
                     Madhuri C
@@ -820,8 +820,8 @@ export default async function Home() {
         <div className="bg-gray-800 bg-opacity-75">
           <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
             <p className="text-gray-400 text-sm text-center sm:text-left">
-              © 2020 Tailblocks —
-              <a href="https://twitter.com/knyttneve" rel="noopener noreferrer" className="text-gray-500 ml-1" target="_blank">@knyttneve</a>
+              © 2023 kanoon.ai —
+              <a href="/" rel="noopener noreferrer" className="text-gray-500 ml-1" target="_blank">@Manoj</a>
             </p>
             <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
               <a className="text-gray-400">
