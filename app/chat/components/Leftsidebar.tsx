@@ -3,8 +3,8 @@ import Uploadfile from './uploadfile';
 import LlmCategory from './llmcategory';
 import prisma from '@/lib/prismadb'
 
-export default async function Leftsidebar() {
-    const category = await prisma?.category.findMany()
+export default  function Leftsidebar() {
+    // const category = await prisma?.category.findMany()
     return (
         <div className="flex flex-col py-8 pl-6 pr-2 w-64 bg-white flex-shrink-0">
 
@@ -56,7 +56,7 @@ export default async function Leftsidebar() {
                         <div className="ml-2 text-sm font-semibold">Divorce notice</div>
                     </button>
                 </div>
-<LlmCategory data={category}/>
+                {/* <LlmCategory data={category}/> */}
             </div>
         </div>
     )

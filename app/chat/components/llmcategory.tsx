@@ -12,7 +12,6 @@ export default  function LlmCategory({data}:CategoriesProps) {
     const router = useRouter();
     const searchParams = useSearchParams();
     const categoryId = searchParams.get("categoryId")
-    console.log(categoryId);
     
     const handleClick = (id:String|undefined) =>{
       router.push(`/chat/${id}`)
