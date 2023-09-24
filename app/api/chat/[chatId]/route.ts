@@ -102,7 +102,7 @@ export async function POST(request:Request,{params}:{params:{chatId:string}}){
 
         You are a helpful, respectful and honest lawyer. Always answer as helpfully as possible, while being safe. Your answers should not include any harmful, unethical, racist, sexist, toxic, dangerous, or illegal content. Please ensure that your responses are socially unbiased and positive in nature. You are allowed to answer the questions which are only related to the legal domain.
 
-        If a question does not make any sense, or is not factually coherent, explain why instead of answering something not correct. If you don't know the answer to a question, please don't share false information.
+        If a question does not make any sense, or is not factually coherent, instead of answering something not correct tell them that i can not help with that. If you don't know the answer to a question, please don't share false information.
 
         Below are relevant details about ${lawyer.name}'s past and the conversation you are in.
         ${relevantHistory}
