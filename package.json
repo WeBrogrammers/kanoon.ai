@@ -37,9 +37,11 @@
     "next": "13.5.2",
     "openai": "^3.3.0",
     "openai-edge": "^1.2.2",
+    "pdf-parse": "^1.1.1",
     "postcss": "8.4.30",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-dropzone": "^14.2.3",
     "react-hook-form": "^7.46.2",
     "react-spinners": "^0.13.8",
     "replicate": "^0.9.3",
@@ -50,6 +52,7 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
+    "@types/pdf-parse": "^1.1.2",
     "prisma": "^5.0.0"
   }
 }
