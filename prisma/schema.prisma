@@ -21,8 +21,7 @@ enum ChatRole {
 }
 
 model User {
-  uid  String @id @default(uuid())
-  name String
+  id  String @id 
   role Role   @default(USER)
 }
 
@@ -30,33 +29,47 @@ model Category {
   id     String   @id @default(uuid())
   name   String
   lawyer Lawyer[]
+
+}
+
+
+model Message {
+  id          String   @id @default(uuid())
+  role        ChatRole   
+  content     String   @db.Text
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  companionId String
+  userId      String
+
+  companion   Lawyer @relation(fields: [companionId], references: [id], onDelete: Cascade)
+  
+  @@index([companionId])
 }
 
 model Lawyer {
-  id          String    @id @default(uuid())
-  description String
-  instruction String    @db.Text
-  seed        String    @db.Text
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
-  category    Category  @relation(fields: [categoryId], references: [id])
-  categoryId  String
-  messages    Message[]
+  id            String @id @default(uuid())
+  userId        String
+  userName      String
+  name          String @db.Text
+  description   String
+  instructions  String @db.Text
+  seed          String @db.Text
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  category      Category @relation(fields: [categoryId], references: [id])
+  categoryId    String
+
+  messages      Message[]
 
   @@index([categoryId])
 }
 
-model Message {
-  id        String   @id @default(uuid())
-  role      ChatRole
-  content   String   @db.Text
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  lawyer    Lawyer   @relation(fields: [lawyerId], references: [id], onDelete: Cascade)
-  lawyerId  String
 
-  @@index([lawyerId])
-}
+
 
 // npm i -D  prisma
 // npx prisma init

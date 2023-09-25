@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import axios from 'axios'
-import { Wand2 } from "lucide-react";
+import { Wand2 ,Trash} from "lucide-react";
 import { Category, Lawyer } from "@prisma/client"
 import * as z from 'zod'
 import {useForm} from 'react-hook-form'
@@ -56,9 +56,10 @@ interface lawyerFormProps{
 
 const formSchema = z.object({
     description:z.string().min(20,{message:"minimum 20 characters"}),
-    instruction:z.string().min(200,{message:"minimum 200 characters"}),
+    instructions:z.string().min(200,{message:"minimum 200 characters"}),
     seed:z.string().min(200,{message:"minimum 200 characters"}),
-    categoryId:z.string().min(1,{message:"category must be specified"})
+    categoryId:z.string().min(1,{message:"category must be specified"}),
+    name:z.string().min(3,{message:"minimum 3 characters"})
 })
 
 
@@ -69,9 +70,10 @@ const router = useRouter();
         resolver:zodResolver(formSchema),
         defaultValues:initialData||{
             description:"",
-            instruction:"",
+            instructions:"",
             seed:"",
-            categoryId:undefined
+            categoryId:undefined,
+            name:""
         }
     })
     const isLoading = form.formState.isSubmitting;
@@ -101,10 +103,29 @@ const router = useRouter();
         }  
      }
 
+     const deleteLawyer = async ()=>{
+      try {
+        await axios.delete(`/api/lawyer/${initialData?.id}`)
+      router.push("/admin/train-lawyer");
+
+                 toast({
+        description: "Success.",
+        duration: 3000,
+      });
+      } catch (error) {
+        console.log(error);
+         toast({
+        variant: "destructive",
+        description: "Something went wrong.",
+        duration: 3000,
+      });
+      }
+     }
+
     return(
-        <div className="h-full p-4 space-y-2 max-w-3xl mx-auto">
+        <div className="h-full g-1 space-y-2 max-w-3xl mx-auto flex justify-center items-center flex-col pb-4">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 pb-10">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2 pb-2">
           <div className="space-y-2 w-full col-span-2">
             <div>
               <h1 className="text-6xl font-bold">General Information</h1>
@@ -115,6 +136,22 @@ const router = useRouter();
             <Separator className="bg-primary/10" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+               <FormField
+              name="name"
+              control={form.control}
+              render={({ field }) => (
+                <FormItem className="col-span-2 md:col-span-1">
+                  <FormLabel>Name</FormLabel>
+                  <FormControl>
+                    <Input disabled={isLoading} placeholder="Evelyn Sterling" {...field} />
+                  </FormControl>
+                  <FormDescription>
+                    This is how your AI Lawyer will be named.
+                  </FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
             <FormField
               name="description"
               control={form.control}
@@ -167,7 +204,7 @@ const router = useRouter();
             <Separator className="bg-primary/10" />
           </div>
           <FormField
-            name="instruction"
+            name="instructions"
             control={form.control}
             render={({ field }) => (
               <FormItem>
@@ -198,14 +235,23 @@ const router = useRouter();
               </FormItem>
             )}
           />
-          <div className="w-full flex justify-center">
+          <div className="w-full  flex justify-center">
             <Button size="lg" disabled={isLoading}>
               {initialData ? "Edit your Lawyer" : "Create your Lawyer"}
               <Wand2 className="w-4 h-4 ml-2" />
             </Button>
+            
           </div>
         </form>
       </Form>
+      <div className=""></div>
+          {
+            initialData &&
+             <Button size="lg"  onClick={deleteLawyer} disabled={isLoading}>
+              Delete
+              <Trash className="w-4 h-4 ml-2" />
+            </Button>
+            }
     </div>
     )   
 }
