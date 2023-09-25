@@ -63,13 +63,16 @@ export const ChatClient = ({
       lawyer={lawyer}
       isLoading={isLoading}
       messages={messages}
-      />
-      <ChatForm 
-        isLoading={isLoading} 
         input={input} 
         handleInputChange={handleInputChange} 
         onSubmit={onSubmit} 
       />
+      {/* <ChatForm 
+        isLoading={isLoading} 
+        input={input} 
+        handleInputChange={handleInputChange} 
+        onSubmit={onSubmit} 
+      /> */}
     </div>
    );
 }

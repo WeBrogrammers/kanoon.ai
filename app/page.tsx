@@ -50,7 +50,7 @@ export default async function Home() {
               solutions for your needs."
             </p>
             <div className="flex justify-center">
-              <Link href="/chat/e9654c59-aef0-4b7d-b2b1-9877bc9d1186">
+              <Link href="/chat/203d150a-6d43-44b1-b65a-7d4794df2c1b">
               <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
                 Try Chat →
               </button>

@@ -1,17 +1,22 @@
 "use client"
 import { ChatMessages, ChatMessagesProps } from '@/components/chatMessages';
 import Leftsidebar from './Leftsidebar'
-import DropdownMenuCheckboxes from './languageselect';
 import { Lawyer, Message } from "@prisma/client"
-import {ElementRef, useEffect, useRef, useState } from 'react';
-
+import {ChangeEvent, ElementRef, FormEvent, useEffect, useRef, useState } from 'react';
+import ChatForm from '@/components/chatform';
+import { ChatRequestOptions } from "ai";
 interface chatInterfaceProps {
   messages: ChatMessagesProps[];
   isLoading: boolean;
-  lawyer: Lawyer
+  lawyer: Lawyer,
+  input: string,
+  handleInputChange: (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) => void,
+  onSubmit: (e: FormEvent<HTMLFormElement>, chatRequestOptions?: ChatRequestOptions | undefined) => void;
 }
 
-export default function ChatInterface({ lawyer, messages = [], isLoading }: chatInterfaceProps) {
+export default function ChatInterface({ lawyer, messages = [], isLoading, input,
+  handleInputChange,
+  onSubmit, }: chatInterfaceProps) {
   const scrollRef = useRef<ElementRef<"div">>(null)
   const [fakeLoading, setFakeLoading] = useState(messages.length === 0?true:false)
   useEffect(()=>{
@@ -46,7 +51,10 @@ export default function ChatInterface({ lawyer, messages = [], isLoading }: chat
                 </div>
               </div>
             </div>
-                {/* <ChatClient/> */}
+            <ChatForm isLoading={isLoading}
+              input={input}
+              handleInputChange={handleInputChange}
+              onSubmit={onSubmit} />
           </div>
         </div>
 
