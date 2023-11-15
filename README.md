@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <a href="https://s3.ap-south-1.amazonaws.com/kanoon.ai/Abstract.docx">
+  <a href="https://pitch.com/v/Hackathon-vdtcvx">
     <img src="https://img.shields.io/badge/PPT-ec1c24?style=for-the-badge" alt="PPT">
   </a>
   <a href="https://s3.ap-south-1.amazonaws.com/kanoon.ai/Abstract.docx">
@@ -122,11 +122,11 @@ The demo is hosted on a free vercel plan, Vercel does not allow a response time 
 ## Team
 
 **Team Leader:**
-- [@ Sagara B G](https://github.com/Sagarabg)
+- [@Sagara B G](https://github.com/Sagarabg)
 
 **Team Members:**
-- [Manoj M V](https://github.com/Manoj-M-V)
-- [Prajwal S](https://github.com/TheKenKaneki)
-- [Naveen](https://github.com/gaonkarBhai)
-- [@ Balaji T S](https://github.com/balaji-ts-18)
-- [Madhuri C](https://github.com/madhuricmouly)
+- [@Manoj M V](https://github.com/Manoj-M-V)
+- [@Prajwal S](https://github.com/TheKenKaneki)
+- [@Naveen](https://github.com/gaonkarBhai)
+- [@Balaji T S](https://github.com/balaji-ts-18)
+- [@Madhuri C](https://github.com/madhuricmouly)
